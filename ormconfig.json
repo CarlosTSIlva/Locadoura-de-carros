@@ -2,7 +2,11 @@
     "type": "postgres",
     "host": "localhost",
     "username": "root",
-    "password": "192837456",
+    "password": "ignite",
     "port": 5432,
-    "database": "rentx"
+    "database": "rentx",
+    "migrations": ["./src/database/migrations/*.ts"],
+    "cli": {
+        "migrationsDir": "src/database/migrations"
+    }
 }
