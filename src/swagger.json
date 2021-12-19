@@ -75,6 +75,72 @@
                     }
                 }
             }
+        },
+        "/categories/import": {
+            "post": {
+                "tags": ["categories"],
+                "summary": "Import categories",
+                "description": "Import categories",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Categories imported"
+                    }
+                }
+            }
+        },
+
+        "/specification": {
+            "post": {
+                "tags": ["specification"],
+                "summary": "Create a new specification",
+                "description": "Create a new specification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Specification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Specification created"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    },
+
+    "definitions": {
+        "Specification": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
         }
     }
 }
