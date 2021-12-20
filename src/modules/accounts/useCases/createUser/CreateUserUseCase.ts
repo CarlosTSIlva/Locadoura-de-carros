@@ -23,6 +23,7 @@ class CreateUserUseCase {
         if (userAlreadyExists) {
             throw new AppError("User already exists");
         }
+
         await this.userRepository.create({
             name,
             email,
