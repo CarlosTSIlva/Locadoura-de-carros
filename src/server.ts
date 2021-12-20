@@ -11,7 +11,6 @@ import swaggerFile from "./swagger.json";
 
 const app = express();
 
-
 app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
@@ -20,7 +19,6 @@ app.use(router);
 
 app.use((err: Error, req: Request, res: Response) => {
     if (err instanceof AppError) {
-        
         return res.status(err.statusCode).send({
             message: err.message,
         });
