@@ -32,7 +32,7 @@ export async function ensureAuthenticated(
     if (!userExist) {
       throw new AppError('User not found', 401);
     }
-    console.log(userId);
+
     req.user = {
       id: userId,
     };
